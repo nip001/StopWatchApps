@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
     private boolean isBerjalan;
     TextView textTime;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +41,19 @@ public class MainActivity extends AppCompatActivity {
         super.onSaveInstanceState(outState);
         outState.putInt("detik",detik);
         outState.putBoolean("isBerjalan",isBerjalan);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        System.out.println("ini stop");
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        System.out.println("ini start");
+        textTime.setText("sedang melanjutkan");
     }
 
     public void onClickMulai(View view) {
